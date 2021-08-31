@@ -1,8 +1,14 @@
+import ch.qos.logback.classic.LoggerContext;
 import org.junit.jupiter.api.Test;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.platform.commons.logging.Logger;
+import org.junit.platform.commons.logging.LoggerFactory;
 
+import static org.junit.Assert.*;
+@ExtendWith(TimingExtention.class)
 public class TriangleTest {
     private static callTriangleArea cal = new callTriangleArea();
+    private static Logger logger = LoggerFactory.getLogger(TriangleTest.class);
     @Test
     public void testJudge() {// Невозможно сформировать треугольник 
         assertEquals(false, cal.judge(2, 1, 3));
